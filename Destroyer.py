@@ -35,7 +35,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 Commands List:
 /start - Welcome Message
 /help - Command Usage Guide
-/kiss <ip> <port> <time> - Start Attack
+/लुंड <ip> <port> <time> - Start Attack
 /status - Bot Performance Status
 /uptime - Check Bot Uptime
 /ping - Check Bot Ping
@@ -80,8 +80,8 @@ async def ping(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     ping_value = round(st.results.ping, 2)
     await update.message.reply_text(f"🏓 Bot Ping: {ping_value} ms")
 
-# Command: /kiss (Start attack)
-async def kiss(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+# Command: /लुंड (Start attack)
+async def लुंड(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     global attack_process  
 
     if str(update.message.from_user.id) not in approved_users:
@@ -89,7 +89,7 @@ async def kiss(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return
 
     if len(context.args) != 3:
-        await update.message.reply_text("❌ Correct Usage: /kiss <ip> <port> <time>")
+        await update.message.reply_text("❌ Correct Usage: /लुंड <ip> <port> <time>")
         return
 
     ip, port, time = context.args
@@ -210,7 +210,7 @@ def main():
     # Adding all necessary command handlers
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
-    app.add_handler(CommandHandler("kiss", kiss))
+    app.add_handler(CommandHandler("लुंड", लुंड))
     app.add_handler(CommandHandler("status", status))
     app.add_handler(CommandHandler("uptime", uptime))
     app.add_handler(CommandHandler("ping", ping))
